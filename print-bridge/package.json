@@ -1,0 +1,37 @@
+{
+  "name": "top-kabda-print-bridge",
+  "version": "1.0.0",
+  "description": "Top Kabda silent printing bridge for Windows",
+  "main": "main.js",
+  "author": "Top Kabda",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "serialport": "^13.0.0"
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.topkabda.printbridge",
+    "productName": "Top Kabda Print Bridge",
+    "artifactName": "Top-Kabda-Print-Bridge-Setup-${version}.${ext}",
+    "files": ["main.js", "package.json"],
+    "win": {
+      "target": [{"target":"nsis","arch":["x64"]}],
+      "icon": "../app/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Top Kabda Print Bridge",
+      "runAfterFinish": true
+    }
+  }
+}
