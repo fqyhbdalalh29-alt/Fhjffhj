@@ -1,6 +1,6 @@
 name: Deploy Web App
 
-"on":
+on:
   workflow_dispatch:
   push:
     branches: [ main ]
@@ -19,24 +19,20 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Prepare site
-        run: |
-          mkdir _site
-          cp -r app/* _site/
-
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: './app'
 
       - name: Deploy to GitHub Pages
         id: deployment
