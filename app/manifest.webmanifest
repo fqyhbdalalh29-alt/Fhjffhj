@@ -1,0 +1,12 @@
+{
+  "name": "بوفية توب كبدة",
+  "short_name": "توب كبدة",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#160d09",
+  "theme_color": "#772d43",
+  "description": "منيو وطلبات بوفية توب كبدة"
+}
